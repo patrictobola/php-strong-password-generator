@@ -2,16 +2,7 @@
 
 $psw_length = $_GET['psw'] ?? NULL;
 
-function randomPassword($length)
-{
-    $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz|!"$%&/()=?^*@#-_<>';
-    $password = [];
-    for ($i = 0; $i < $length; $i++) {
-        $index = rand(0, strlen($characters) - 1);
-        $password[] = $characters[$index];
-    }
-    return implode($password);
-}
+include __DIR__ . '/includes/scripts/random_psw_generator.php'
 ?>
 
 
@@ -27,7 +18,7 @@ function randomPassword($length)
     <h1 class="text-center">Password Generator</h1>
     <div class="container w-50 mt-5 bg-secondary p-5">
         <div class="bg-success p-3 mb-5">
-            <?php if (isset($psw_length)) echo randomPassword($psw_length) ?>
+            <?php if (isset($psw_length)) echo random_psw($psw_length) ?>
         </div>
         <div>
             <form action="">
