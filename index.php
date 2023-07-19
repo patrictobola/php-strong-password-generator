@@ -1,11 +1,12 @@
 <?php
 
+$psw_length = $_GET['psw'] ?? NULL;
 
-function randomPassword($letters)
+function randomPassword($length)
 {
     $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz|!"$%&/()=?^*@#-_<>';
     $password = [];
-    for ($i = 0; $i < $letters; $i++) {
+    for ($i = 0; $i < $length; $i++) {
         $index = rand(0, strlen($characters) - 1);
         $password[] = $characters[$index];
     }
@@ -31,7 +32,7 @@ function randomPassword($letters)
     <h1 class="text-center">Password Generator</h1>
     <div class="container w-50 mt-5 bg-secondary p-5">
         <div class="bg-success p-3 mb-5">
-            Messaggio di errore
+            <?php if (isset($psw_length)) echo randomPassword($psw_length) ?>
         </div>
         <div>
             <form action="">
