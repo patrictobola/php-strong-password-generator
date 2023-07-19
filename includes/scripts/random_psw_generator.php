@@ -1,5 +1,5 @@
-<?php 
-
+<?php
+$psw_length = $_GET['psw'] ?? NULL;
 function random_psw($length)
 {
     $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz|!"$%&/()=?^*@#-_<>';
