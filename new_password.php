@@ -12,6 +12,7 @@ session_start()
 <body>
     <h1 class="text-center">Password Created</h1>
     <div class="container w-50 mt-5 bg-secondary p-5">
+        <h3>La tua password è:</h3>
         <div class="bg-success p-3 mb-5">
             <?= random_psw($_SESSION['psw']) ?>
         </div>

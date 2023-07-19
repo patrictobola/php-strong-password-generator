@@ -2,12 +2,17 @@
 // Porto il psw generator 
 include __DIR__ . '/includes/scripts/random_psw_generator.php';
 
-// Porto i dati da un'altra parte 
+
+
+
 session_start();
-if (isset($_GET['psw'])) $_SESSION['psw'] = $_GET['psw'];
+if (isset($_GET['psw'])) {
+    $_SESSION['psw'] = $_GET['psw'];
+    $password = intval($_GET['psw']);
+}
 
 // Se la psw è stata settata, redirect alla pagina con la psw 
-if (isset($_GET['psw']) && $_GET['psw'] != '' && $_GET['psw'] > 0) header('Location: ./new_password.php')
+if (isset($password) && $password != '' && $password > 0 && $password) header('Location: ./new_password.php')
 
 ?>
 
@@ -24,10 +29,11 @@ if (isset($_GET['psw']) && $_GET['psw'] != '' && $_GET['psw'] > 0) header('Locat
     <h1 class="text-center">Password Generator</h1>
     <div class="container w-50 mt-5 bg-secondary p-5">
         <div>
+            <h6 class="mb-5">Ho sfruttato la validazione di 'input number' per informare l'utente dov'è l'errore. Ma se volesse forzare altri caratteri il button non reindirizza da nessuna parte</h6>
             <form action="">
                 <div class="d-flex justify-content-between mb-5">
                     <label for="psw">Lunghezza della tua password:</label>
-                    <input type="number" min="1" max="20" name="psw" id="psw" value="<?= $_GET['psw'] ?? 1 ?>">
+                    <input type="number" min="1" max="20" name="psw" id="psw" value="<?= $password ?? 1 ?>">
                 </div>
                 <button class="btn btn-success">Invia Form</button>
 
