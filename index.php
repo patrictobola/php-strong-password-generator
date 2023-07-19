@@ -10,17 +10,17 @@
 
 <body>
     <h1 class="text-center">Password Generator</h1>
-    <div class="container w-25 mt-5 bg-secondary">
-        <div class="alert">
+    <div class="container w-50 mt-5 bg-secondary p-5">
+        <div class="bg-success p-3 mb-5">
             Messaggio di errore
         </div>
         <div>
             <form action="">
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between mb-5">
                     <label for="psw">Lunghezza della tua password:</label>
                     <input type="number" name="psw" id="psw">
                 </div>
-
+                <button class="btn btn-success">Invia Form</button>
 
             </form>
         </div>
