@@ -19,14 +19,15 @@ if (isset($_GET['upper'])) $chars .= $uppercase;
 if (isset($_GET['number'])) $chars .= $numbers;
 if (isset($_GET['symbols'])) $chars .= $special;
 
+// Baso tutta la validazione dall'input dei numeri
 if (isset($_GET['psw'])) {
     $_SESSION['psw'] = $_GET['psw'];
     $_SESSION['chars'] = $chars;
+    $_SESSION['doubles'] = $_GET['doubles'];
     $password = intval($_GET['psw']);
 }
 // Se la psw è stata settata, redirect alla pagina con la psw 
-if (isset($password) && $password != '' && $password > 0 && $password) header('Location: ./new_password.php');
-var_dump($chars)
+if (isset($password) && $password != '' && $password > 0 && $password && $chars != '') header('Location: ./new_password.php');
 ?>
 
 
@@ -47,6 +48,16 @@ var_dump($chars)
                 <div class="d-flex justify-content-between mb-5">
                     <label for="psw">Lunghezza della tua password:</label>
                     <input type="number" min="1" max="20" name="psw" id="psw" value="<?= $password ?? 1 ?>">
+                </div>
+                <div class="d-flex flex-column align-items-end mb-5">
+                    <div>
+                        <label for="doubles">Inserire doppioni nella password</label>
+                        <input type="radio" name="doubles" id="doubles" value="yes">
+                    </div>
+                    <div>
+                        <label for="no_doubles">Non inserire doppioni nella password</label>
+                        <input type="radio" name="doubles" id="no_doubles" value="no" checked>
+                    </div>
                 </div>
                 <div class="d-flex flex-column align-items-end">
                     <div>
