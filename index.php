@@ -5,11 +5,7 @@ include __DIR__ . '/includes/scripts/random_psw_generator.php';
 
 
 // Preset di caratteri che si aggiungeranno in base alle richieste dell'utente 
-$lowercase = 'abcdefghijklmnopqrstuvwxyz';
-$uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-$numbers = '0123456789';
-$special = '!@#$%^&*()_+-={}[];\',./<>?:"|\\';
-$chars = '';
+include __DIR__ . '/includes/utils/chars_preset.php';
 
 
 
@@ -73,7 +69,7 @@ if (isset($password) && $password != '' && $password > 0 && $password && $chars 
                         <input type="checkbox" id="symbols" name="symbols">
                     </div>
                     <div>
-                        <label for="number">Numbercase</label>
+                        <label for="number">Numbers</label>
                         <input type="checkbox" id="number" name="number">
                     </div>
                 </div>
