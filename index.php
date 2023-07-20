@@ -15,7 +15,7 @@ if (isset($_GET['upper'])) $chars .= $uppercase;
 if (isset($_GET['number'])) $chars .= $numbers;
 if (isset($_GET['symbols'])) $chars .= $special;
 
-// Baso tutta la validazione dall'input dei numeri
+// Baso tutta la validazione dall'input della lunghezza della psw
 if (isset($_GET['length'])) {
     $_SESSION['length'] = $_GET['length'];
     $_SESSION['chars'] = $chars;
