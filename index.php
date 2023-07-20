@@ -16,11 +16,11 @@ if (isset($_GET['number'])) $chars .= $numbers;
 if (isset($_GET['symbols'])) $chars .= $special;
 
 // Baso tutta la validazione dall'input dei numeri
-if (isset($_GET['psw'])) {
-    $_SESSION['psw'] = $_GET['psw'];
+if (isset($_GET['length'])) {
+    $_SESSION['length'] = $_GET['length'];
     $_SESSION['chars'] = $chars;
     $_SESSION['doubles'] = $_GET['doubles'];
-    $password = intval($_GET['psw']);
+    $password = intval($_GET['length']);
 }
 // Se la psw è stata settata, redirect alla pagina con la psw 
 if (isset($password) && $password != '' && $password > 0 && $password && $chars != '') header('Location: ./new_password.php');
@@ -42,8 +42,8 @@ if (isset($password) && $password != '' && $password > 0 && $password && $chars 
             <h6 class="mb-5">Ho sfruttato la validazione di 'input number' per informare l'utente dov'è l'errore. Ma se volesse forzare altri caratteri il button non reindirizza da nessuna parte</h6>
             <form action="">
                 <div class="d-flex justify-content-between mb-5">
-                    <label for="psw">Lunghezza della tua password:</label>
-                    <input type="number" min="1" max="20" name="psw" id="psw" value="<?= $password ?? 1 ?>">
+                    <label for="length">Lunghezza della tua password:</label>
+                    <input type="number" min="1" max="20" name="length" id="length" value="<?= $password ?? 1 ?>">
                 </div>
                 <div class="d-flex flex-column align-items-end mb-5">
                     <div>
@@ -58,7 +58,7 @@ if (isset($password) && $password != '' && $password > 0 && $password && $chars 
                 <div class="d-flex flex-column align-items-end">
                     <div>
                         <label for="lower">Lowercase</label>
-                        <input type="checkbox" id="lower" name="lower">
+                        <input type="checkbox" id="lower" name="lower" checked>
                     </div>
                     <div>
                         <label for="upper">Uppercase</label>

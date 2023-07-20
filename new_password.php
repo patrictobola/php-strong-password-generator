@@ -18,8 +18,8 @@ $doubles = $_SESSION['doubles'];
         <div class="bg-success p-3 mb-5">
             <?php
             // Se dal form arriva un 'no' dal ratio input facciamo partire una funzione, altrimenti l'altra
-            if ($doubles === 'no') echo random_psw($_SESSION['psw'], $chars);
-            else echo random_psw_with_doubles($_SESSION['psw'], $chars);
+            if ($doubles === 'no') echo random_psw($_SESSION['length'], $chars);
+            else echo random_psw_with_doubles($_SESSION['length'], $chars);
 
             ?>
         </div>
